@@ -1,0 +1,29 @@
+{
+    "name": "wenhaokho/omise",
+    "description": "this is a package for laravel to use omise api",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wenhaokho",
+            "email": "wenhao.kho@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php" : "^7.2.5",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "wenhaokho\\Omise\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "wenhaokho\\Omise\\OmiseServiceProvider"
+            ]
+        }
+    }
+}
