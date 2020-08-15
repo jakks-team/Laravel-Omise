@@ -17,4 +17,15 @@ class OmiseCustomer extends Omise
 
         return $response->json();
     }
+
+    public static function addCard(array $data)
+    {
+        static::init();
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Basic ' . base64_encode(self::$secret_key)
+        ])->patch(static::$url . '/customers', $data);
+
+        return $response->json();
+    }
 }

@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Http;
 
 class OmiseEvent extends Omise
 {
-    public static function create(array $data)
+    public static function get(string $eventId)
     {
         static::init();
 
         $response = Http::withHeaders([
             'Authorization' => 'Basic ' . base64_encode(self::$secret_key)
-        ])->post(static::$url . '/events', $data);
+        ])->get(static::$url . '/events/'.$eventId);
 
         return $response->json();
     }

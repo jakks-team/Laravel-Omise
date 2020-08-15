@@ -7,13 +7,24 @@ use Illuminate\Support\Facades\Http;
 
 class OmiseCard extends Omise
 {
-    public static function create(string $customerId, array $data)
+    public static function list(string $customerId)
     {
         static::init();
 
         $response = Http::withHeaders([
             'Authorization' => 'Basic ' . base64_encode(self::$secret_key)
-        ])->post(static::$url . '/customers/'.$customerId.'/card', $data);
+        ])->get(static::$url . '/customers/'.$customerId.'/cards');
+
+        return $response->json();
+    }
+
+    public static function get(string $customerId, string $cardId)
+    {
+        static::init();
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Basic ' . base64_encode(self::$secret_key)
+        ])->get(static::$url . '/customers/'.$customerId.'/cards/'.$cardId);
 
         return $response->json();
     }
