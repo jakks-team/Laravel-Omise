@@ -7,9 +7,14 @@
         {
             "name": "wenhaokho",
             "email": "wenhao.kho@gmail.com"
+        },
+        {
+            "name": "jakks-team",
+            "email": "jakks.team@gmail.com"
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php" : "^7.2.5",
         "guzzlehttp/guzzle": "~6.0"
